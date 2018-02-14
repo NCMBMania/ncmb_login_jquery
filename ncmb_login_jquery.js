@@ -15,14 +15,18 @@
       ncmbObj.params = params;
       
       // モーダル化
-      this.iziModal();
+      if (this.iziModal)
+        this.iziModal();
       return this;
   	},
     
     // サインアップ処理
     signUp: function(res, rej) {
       // モーダルを開く
-      this.iziModal('open');
+      if (this.iziModal)
+        this.iziModal('open');
+      if (this.modal)
+        this.modal();
       const me = this;
       // 処理はフォームのサブミットで行う
       this.find('form').on('submit', (e) => {
@@ -47,7 +51,10 @@
           .signUpByAccount()
           .then(() => {
             // 登録がうまくいったらモーダルを閉じる
-          	me.iziModal('close');
+            if (me.iziModal) 
+          	  me.iziModal('close');
+            if (this.modal)
+              me.modal('hide');
             res(user);
           }, (err) => {
             rej(err);
@@ -57,7 +64,10 @@
     // ログイン
     signIn: function(res, rej) {
       // モーダルを開く
-      this.iziModal('open');
+      if (this.iziModal)
+        this.iziModal('open');
+      if (this.modal)
+        this.modal();
       const me = this;
       // 処理はフォームのサブミットで行う
       this.find('form').on('submit', (e) => {
@@ -71,7 +81,10 @@
         	.login(userName, password)
           .then((user) => {
             // ログインがうまくいったらモーダルを閉じる
-          	me.iziModal('close');
+            if (me.iziModal) 
+          	  me.iziModal('close');
+            if (this.modal)
+              me.modal('hide');
             res(user);
           }, (err) => {
             rej(err);
