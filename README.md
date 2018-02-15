@@ -29,7 +29,7 @@ $('#modal-default').initialize({
 ## 依存性
 
 - [jQuery](http://jquery.com/)
-- [iziModal.js](http://izimodal.marcelodolce.com/)
+- [iziModal.js](http://izimodal.marcelodolce.com/) または [Bootstrap](http://getbootstrap.com/)
 
 ## LICENSE
 
